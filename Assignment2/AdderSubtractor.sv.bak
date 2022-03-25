@@ -1,0 +1,22 @@
+module adder_subtractor
+	#(parameter n=2)
+	(
+	input logic [2**n-1:0] a,b,
+	input logic s,
+	output logic [2**n-1:0] y
+	)
+	
+	logic [2**n-1:0] d0,d1;
+	
+	logic [2**n-1:0] g;
+	
+	assign g = ~b + 1;
+	
+	behavioural_adder #(n) add0 (a,b,d0);
+	behavioural_adder #(n) add1 (a,g,d1);
+	
+	assign y = s? d1 : d0;
+	
+endmodule
+	
+	

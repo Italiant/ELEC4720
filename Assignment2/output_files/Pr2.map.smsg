@@ -1,0 +1,9 @@
+Info (10281): Verilog HDL Declaration information at Pr2.sv(5): object "HEX0" differs only in case from object "hex0" in the same scope File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+Info (10281): Verilog HDL Declaration information at Pr2.sv(5): object "HEX1" differs only in case from object "hex1" in the same scope File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+Info (10281): Verilog HDL Declaration information at Pr2.sv(5): object "HEX2" differs only in case from object "hex2" in the same scope File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+Info (10281): Verilog HDL Declaration information at Pr2.sv(5): object "HEX3" differs only in case from object "hex3" in the same scope File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+Info (10281): Verilog HDL Declaration information at Pr2.sv(54): object "WE" differs only in case from object "we" in the same scope File: C:/4720/assignment jump +branch/Pr2.sv Line: 54
+Info (10281): Verilog HDL Declaration information at InstructionClassifier.sv(4): object "F" differs only in case from object "f" in the same scope File: C:/4720/assignment jump +branch/InstructionClassifier.sv Line: 4
+Info (10281): Verilog HDL Declaration information at Shifter.sv(6): object "F" differs only in case from object "f" in the same scope File: C:/4720/assignment jump +branch/Shifter.sv Line: 6
+Warning (10273): Verilog HDL warning at TriStateBuffers.sv(20): extended using "x" or "z" File: C:/4720/assignment jump +branch/TriStateBuffers.sv Line: 20
+Warning (10273): Verilog HDL warning at TriStateBuffers.sv(31): extended using "x" or "z" File: C:/4720/assignment jump +branch/TriStateBuffers.sv Line: 31

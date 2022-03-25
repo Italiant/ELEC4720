@@ -1,0 +1,12 @@
+module mux_4_to_1
+	#(parameter n=2)
+	(
+	input logic [2**n-1:0] d0,d1,d2,d3,
+	input logic [1:0] s,
+	output logic [2**n-1:0] y
+	);
+	
+	assign y = s[1]? (s[0]? d1 : d2): 
+						  (s[0]? d3 : d0);
+	
+endmodule	

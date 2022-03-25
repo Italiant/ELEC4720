@@ -1,0 +1,18 @@
+module shifter
+	#(parameter n=4)
+	(
+	input logic [2**n-1:0] a,
+	input logic [n-1:0] Sh,
+	input logic	[1:0] F,
+	output logic [2**n-1:0] y
+	);
+	
+	logic [2**n-1:0] e,f,g;
+	
+	assign e = a << Sh;
+	assign f = a >> Sh;
+	assign g = $signed(a) >>> Sh;
+
+	assign y = F[1]? g : (F[0]? f:g);
+	
+endmodule

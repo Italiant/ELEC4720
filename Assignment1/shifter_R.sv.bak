@@ -1,0 +1,8 @@
+module shifter_R
+#(parameter n = 4)(
+input logic [(2**n)-1:0] A, B, input logic [n-1:0] C, input logic [2:0] F, output logic [(2**n)-1:0] Y
+);
+
+
+
+endmodule

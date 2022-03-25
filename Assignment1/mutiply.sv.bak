@@ -1,0 +1,8 @@
+module multiply 
+#(parameter n)(
+input logic [1:0] BC, output logic [1:0] HL
+);
+
+assign HL = BC[0] * BC[1];
+
+endmodule

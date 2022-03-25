@@ -1,0 +1,40 @@
+module multiply_divide
+	#(parameter n=4)
+	(
+	input logic clk,
+	input logic [3:0] f,
+	input logic [n:0] a,b,
+	output logic [n:0] y,
+	);
+	
+	//a circuit 
+	
+	logic [n:0] H,L,R,Q,hi,lo;
+	
+	logic [2:0] s;
+	logic [1:0] en;
+	
+	assign {H,L} = a*b;
+	assign Q = a/b;
+	assign R = a%b;
+	
+	
+	logic [n:0] muxo0,muxo1,muxo2,muxo3;
+	
+	assign muxo0 s[0]? R : H;
+	assign muxo1 s[0]? L : Q;
+	
+	assign muxo2 s[1]? muxo0 : a;
+	assign muxo3 s[1]? muxo1 : a;
+	
+	
+	always_ff @(posedge clk) begin
+	
+		if(en1) hi <= muxo2
+		if(en2) lo <= mux03
+	
+	end
+	
+	assign y s[2]? lo,hi;
+	
+endmodule

@@ -1,0 +1,12 @@
+// -------------------- I_Type Test --------------------
+010111100000101010 //lui, lui for register $2
+011100001000101011 //lmui; the next 3 lines executes an $2 OR $2, loading data into the register 4 bits at a time
+011110001000101100 //lmli
+010101001000101101 //ori
+010000100000101010 //addi	rs = $8 rt = $2	
+010001100000101010 //addiu	rs = $8 rt = $2		PC = 5
+011010100000101010 //slti	rs = $8 rt = $2
+011011100000101010 //sltiu	rs = $8 rt = $2
+010100100000101010 //andi	rs = $8 rt = $2
+010101100000101010 //ori 	rs = $8 rt = $2		
+010110100000101010 //xori 	rs = $8 rt = $2		PC = 10

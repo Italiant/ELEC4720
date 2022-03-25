@@ -1,0 +1,1133 @@
+Analysis & Synthesis report for Pr2
+Sun Nov 29 14:46:51 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: ROM:myrom
+ 13. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test
+ 14. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|parameterized_decoder:decw
+ 15. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[0].itk
+ 16. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk
+ 17. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk
+ 18. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk
+ 19. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk
+ 20. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[5].itk
+ 21. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk
+ 22. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk
+ 23. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk
+ 24. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk
+ 25. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk
+ 26. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk
+ 27. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk
+ 28. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk
+ 29. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk
+ 30. Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk
+ 31. Parameter Settings for User Entity Instance: ALU:ALU_unit
+ 32. Parameter Settings for User Entity Instance: ALU:ALU_unit|set_less_than:SLT
+ 33. Parameter Settings for User Entity Instance: ALU:ALU_unit|logic_unit:logic_u
+ 34. Parameter Settings for User Entity Instance: ALU:ALU_unit|logic_unit:logic_u|mux_4_to_1:logic_mux
+ 35. Parameter Settings for User Entity Instance: multiply_divide:multi
+ 36. Parameter Settings for User Entity Instance: shifter:shft
+ 37. Parameter Settings for User Entity Instance: tristate_active_hi:triALU
+ 38. Parameter Settings for User Entity Instance: tristate_active_hi:trishf
+ 39. Parameter Settings for User Entity Instance: tristate_active_hi:trimul
+ 40. Parameter Settings for User Entity Instance: RAM:myram
+ 41. Port Connectivity Checks: "instruction_classifier:priority_instruction"
+ 42. Port Connectivity Checks: "RAM:myram"
+ 43. Port Connectivity Checks: "shifter:shft"
+ 44. Port Connectivity Checks: "multiply_divide:multi"
+ 45. Port Connectivity Checks: "ALU:ALU_unit"
+ 46. Port Connectivity Checks: "MyMemoryOneInputThreeOutput:reg_test"
+ 47. Port Connectivity Checks: "hexEncoder:hex3"
+ 48. Port Connectivity Checks: "hexEncoder:hex1"
+ 49. Post-Synthesis Netlist Statistics for Top Partition
+ 50. Elapsed Time Per Partition
+ 51. Analysis & Synthesis Messages
+ 52. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Nov 29 14:46:51 2020           ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Standard Edition ;
+; Revision Name                   ; Pr2                                             ;
+; Top-level Entity Name           ; Pr2                                             ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 82                                              ;
+; Total pins                      ; 62                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 0                                               ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC5C6F27C7     ;                    ;
+; Top-level entity name                                                           ; Pr2                ; Pr2                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 6           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                 ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                             ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------+---------+
+; BranchDecision.sv                ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/BranchDecision.sv        ;         ;
+; test_my_mem.sv                   ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/test_my_mem.sv           ;         ;
+; Pr2.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/Pr2.sv                   ;         ;
+; HexEncoder.sv                    ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/HexEncoder.sv            ;         ;
+; LogicUnit.sv                     ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/LogicUnit.sv             ;         ;
+; Multiplexer4-1.sv                ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/Multiplexer4-1.sv        ;         ;
+; PriorityDecoders.sv              ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/PriorityDecoders.sv      ;         ;
+; InstructionClassifier.sv         ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/InstructionClassifier.sv ;         ;
+; Shifter.sv                       ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/Shifter.sv               ;         ;
+; MultiplierSubtractor.sv          ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/MultiplierSubtractor.sv  ;         ;
+; ALU.sv                           ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/ALU.sv                   ;         ;
+; TriStateBuffers.sv               ; yes             ; User SystemVerilog HDL File  ; C:/4720/assignment jump +branch/TriStateBuffers.sv       ;         ;
+; jump_test.txt                    ; yes             ; Auto-Found File              ; C:/4720/assignment jump +branch/jump_test.txt            ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimate of Logic utilization (ALMs needed) ; 108   ;
+;                                             ;       ;
+; Combinational ALUT usage for logic          ; 154   ;
+;     -- 7 input functions                    ; 3     ;
+;     -- 6 input functions                    ; 54    ;
+;     -- 5 input functions                    ; 22    ;
+;     -- 4 input functions                    ; 34    ;
+;     -- <=3 input functions                  ; 41    ;
+;                                             ;       ;
+; Dedicated logic registers                   ; 82    ;
+;                                             ;       ;
+; I/O pins                                    ; 62    ;
+;                                             ;       ;
+; Total DSP Blocks                            ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; q[25] ;
+; Maximum fan-out                             ; 58    ;
+; Total fan-out                               ; 1016  ;
+; Average fan-out                             ; 2.82  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                    ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------+-----------------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                  ; Entity Name                 ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------+-----------------------------+--------------+
+; |Pr2                                      ; 154 (78)            ; 82 (30)                   ; 0                 ; 0          ; 62   ; 0            ; |Pr2                                                                 ; Pr2                         ; work         ;
+;    |MyMemoryOneInputThreeOutput:reg_test| ; 34 (27)             ; 52 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test                            ; MyMemoryOneInputThreeOutput ; work         ;
+;       |EnabledReg:bloop[0].itk|           ; 0 (0)               ; 10 (10)                   ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[0].itk    ; EnabledReg                  ; work         ;
+;       |EnabledReg:bloop[2].itk|           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk    ; EnabledReg                  ; work         ;
+;       |EnabledReg:bloop[3].itk|           ; 0 (0)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk    ; EnabledReg                  ; work         ;
+;       |EnabledReg:bloop[4].itk|           ; 0 (0)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk    ; EnabledReg                  ; work         ;
+;       |EnabledReg:bloop[5].itk|           ; 0 (0)               ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[5].itk    ; EnabledReg                  ; work         ;
+;       |EnabledReg:bloop[6].itk|           ; 0 (0)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk    ; EnabledReg                  ; work         ;
+;       |EnabledReg:bloop[7].itk|           ; 0 (0)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk    ; EnabledReg                  ; work         ;
+;       |parameterized_decoder:decw|        ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|parameterized_decoder:decw ; parameterized_decoder       ; work         ;
+;    |ROM:myrom|                            ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|ROM:myrom                                                       ; ROM                         ; work         ;
+;    |hexEncoder:hex0|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|hexEncoder:hex0                                                 ; hexEncoder                  ; work         ;
+;    |hexEncoder:hex2|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|hexEncoder:hex2                                                 ; hexEncoder                  ; work         ;
+;    |shifter:shft|                         ; 23 (23)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Pr2|shifter:shft                                                    ; shifter                     ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------+-----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                ;
++--------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                            ; Reason for Removal                     ;
++--------------------------------------------------------------------------+----------------------------------------+
+; multiply_divide:multi|lo[0..15]                                          ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[5]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[5]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[5]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[5]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[5]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[5]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[5]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[5]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[15]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[15]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[15]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[15]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[15]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[15]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[15]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[15]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[0]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[0]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[0]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[0]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[0]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[0]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[0]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[0]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[1]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[1]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[1]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[1]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[1]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[1]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[1]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[1]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[2]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[2]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[2]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[2]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[2]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[2]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[2]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[2]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[3]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[3]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[3]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[3]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[3]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[3]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[3]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[3]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[4]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[4]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[4]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[4]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[4]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[4]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[4]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[4]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[6]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[6]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[6]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[6]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[6]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[6]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[6]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[6]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[7]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[7]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[7]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[7]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[7]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[7]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[7]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[7]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[8]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[8]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[8]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[8]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[8]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[8]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[8]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[8]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[9]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[9]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[9]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[9]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[9]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[9]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[9]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[9]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[10]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[10]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[10]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[10]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[10]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[10]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[10]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[10]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[11]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[11]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[11]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[11]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[11]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[11]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[11]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[11]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[12]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[12]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[12]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[12]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[12]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[12]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[12]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[12]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[13]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[13]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[13]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[13]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[13]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[13]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[13]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[13]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk|Q[14]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk|Q[14]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk|Q[14]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk|Q[14]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk|Q[14]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk|Q[14]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk|Q[14]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk|Q[14]       ; Lost fanout                            ;
+; multiply_divide:multi|hi[0..15]                                          ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[0].itk|Q[5]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[5]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[5]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[5]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[5]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[5]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[0].itk|Q[4]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[4]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[4]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[4]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[4]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[4]        ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[0].itk|Q[12..15]   ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[9]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[9]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[9]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[11]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[11]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[11]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[10]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[10]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[10]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[12]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[12]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[12]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[12]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[12]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[7]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[7]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[7]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[6]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[6]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[6]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[8]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[8]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[8]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[14]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[14]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[14]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[14]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[14]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[13]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[13]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[13]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[13]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[13]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk|Q[15]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[15]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[15]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[15]       ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk|Q[15]       ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[4,5]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[2]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[2]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[1]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[1]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[0]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[0]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[3]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[3,12..15] ; Lost fanout                            ;
+; q[26..31]                                                                ; Lost fanout                            ;
+; pc[4,5]                                                                  ; Stuck at GND due to stuck port data_in ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[0]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[0]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[1]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[1]        ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[2,3]      ; Lost fanout                            ;
+; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[2,3]      ; Lost fanout                            ;
+; Total Number of Removed Registers = 244                                  ;                                        ;
++--------------------------------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                   ;
++------------------------------+---------------------------+--------------------------------------------------------------------+
+; Register name                ; Reason for Removal        ; Registers Removed due to This Register                             ;
++------------------------------+---------------------------+--------------------------------------------------------------------+
+; multiply_divide:multi|lo[0]  ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[0], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[0], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[0]  ;
+; multiply_divide:multi|lo[1]  ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[1], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[1], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[1]  ;
+; multiply_divide:multi|lo[2]  ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[2], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[2], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[2]  ;
+; multiply_divide:multi|lo[3]  ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk|Q[3], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[3], ;
+;                              ;                           ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk|Q[3]  ;
+; multiply_divide:multi|lo[5]  ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[5]  ;
+; multiply_divide:multi|lo[15] ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[15] ;
+; multiply_divide:multi|lo[4]  ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[4]  ;
+; multiply_divide:multi|lo[12] ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[12] ;
+; multiply_divide:multi|lo[13] ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[13] ;
+; multiply_divide:multi|lo[14] ; Lost Fanouts              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk|Q[14] ;
+; pc[5]                        ; Stuck at GND              ; MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk|Q[2]  ;
+;                              ; due to stuck port data_in ;                                                                    ;
++------------------------------+---------------------------+--------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 82    ;
+; Number of registers using Synchronous Clear  ; 2     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 82    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Pr2|JTA_2[3]                                  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |Pr2|JTA_2[2]                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Pr2|shifter:shft|ShiftLeft0                   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Pr2|shifter:shft|ShiftRight0                  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; No         ; |Pr2|shifter:shft|ShiftLeft0                   ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |Pr2|MyMemoryOneInputThreeOutput:reg_test|Mux8 ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; No         ; |Pr2|WD[7]                                     ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 14 LEs               ; 2 LEs                  ; No         ; |Pr2|WD[5]                                     ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 28 LEs               ; 4 LEs                  ; No         ; |Pr2|WD[9]                                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ROM:myrom ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; m              ; 6     ; Signed Integer                ;
+; w              ; 18    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                           ;
+; m              ; 4     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|parameterized_decoder:decw ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; n              ; 4     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[0].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[1].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[2].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[3].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[4].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[5].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[6].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[7].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[8].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[9].itk ;
++----------------+-------+----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                             ;
++----------------+-------+----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                   ;
++----------------+-------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[10].itk ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[11].itk ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[12].itk ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[13].itk ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[14].itk ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[15].itk ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                              ;
++----------------+-------+-----------------------------------------------------------------------------------+
+; w              ; 16    ; Signed Integer                                                                    ;
++----------------+-------+-----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU_unit ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 16    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU_unit|set_less_than:SLT ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; n              ; 16    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU_unit|logic_unit:logic_u ;
++----------------+-------+-----------------------------------------------------+
+; Parameter Name ; Value ; Type                                                ;
++----------------+-------+-----------------------------------------------------+
+; n              ; 16    ; Signed Integer                                      ;
++----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU_unit|logic_unit:logic_u|mux_4_to_1:logic_mux ;
++----------------+-------+--------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                     ;
++----------------+-------+--------------------------------------------------------------------------+
+; n              ; 16    ; Signed Integer                                                           ;
++----------------+-------+--------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: multiply_divide:multi ;
++----------------+-------+-------------------------------------------+
+; Parameter Name ; Value ; Type                                      ;
++----------------+-------+-------------------------------------------+
+; n              ; 16    ; Signed Integer                            ;
++----------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: shifter:shft ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; n              ; 4     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tristate_active_hi:triALU ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tristate_active_hi:trishf ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: tristate_active_hi:trimul ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; n              ; 16    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RAM:myram ;
++----------------+-------+-------------------------------+
+; Parameter Name ; Value ; Type                          ;
++----------------+-------+-------------------------------+
+; N              ; 6     ; Signed Integer                ;
+; W              ; 16    ; Signed Integer                ;
++----------------+-------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "instruction_classifier:priority_instruction" ;
++------+-------+----------+-----------------------------------------------+
+; Port ; Type  ; Severity ; Details                                       ;
++------+-------+----------+-----------------------------------------------+
+; a[5] ; Input ; Info     ; Stuck at GND                                  ;
++------+-------+----------+-----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RAM:myram"                                                                                                                                ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                    ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+; Ad   ; Input ; Warning  ; Input port expression (5 bits) is smaller than the input port (6 bits) it drives.  Extra input bit(s) "Ad[5..5]" will be connected to GND. ;
++------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "shifter:shft"                                                                                                                                                                   ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; F    ; Input ; Warning  ; Input port expression (3 bits) is wider than the input port (2 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "multiply_divide:multi" ;
++------+-------+----------+-------------------------+
+; Port ; Type  ; Severity ; Details                 ;
++------+-------+----------+-------------------------+
+; F[2] ; Input ; Info     ; Stuck at GND            ;
++------+-------+----------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALU_unit"                                                                       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; OV   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "MyMemoryOneInputThreeOutput:reg_test"                                                ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Dout2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "hexEncoder:hex3" ;
++----------+-------+----------+---------------+
+; Port     ; Type  ; Severity ; Details       ;
++----------+-------+----------+---------------+
+; SW[3..2] ; Input ; Info     ; Stuck at GND  ;
++----------+-------+----------+---------------+
+
+
++---------------------------------------------+
+; Port Connectivity Checks: "hexEncoder:hex1" ;
++----------+-------+----------+---------------+
+; Port     ; Type  ; Severity ; Details       ;
++----------+-------+----------+---------------+
+; SW[3..2] ; Input ; Info     ; Stuck at GND  ;
++----------+-------+----------+---------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 82                          ;
+;     ENA               ; 80                          ;
+;     ENA SCLR          ; 2                           ;
+; arriav_lcell_comb     ; 171                         ;
+;     arith             ; 25                          ;
+;         1 data inputs ; 24                          ;
+;         2 data inputs ; 1                           ;
+;     extend            ; 3                           ;
+;         7 data inputs ; 3                           ;
+;     normal            ; 143                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 16                          ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 10                          ;
+;         4 data inputs ; 34                          ;
+;         5 data inputs ; 22                          ;
+;         6 data inputs ; 54                          ;
+; boundary_port         ; 62                          ;
+;                       ;                             ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.41                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+    Info: Processing started: Sun Nov 29 14:46:38 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pr2 -c Pr2
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file branchdecision.sv
+    Info (12023): Found entity 1: branch_decision File: C:/4720/assignment jump +branch/BranchDecision.sv Line: 1
+Info (12021): Found 6 design units, including 6 entities, in source file test_my_mem.sv
+    Info (12023): Found entity 1: test_my_mem File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 6
+    Info (12023): Found entity 2: MyMemory File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 42
+    Info (12023): Found entity 3: MyMemoryOneInputTwoOutput File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 69
+    Info (12023): Found entity 4: MyMemoryOneInputThreeOutput File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 96
+    Info (12023): Found entity 5: EnabledReg File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 131
+    Info (12023): Found entity 6: parameterized_decoder File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 143
+Info (12021): Found 3 design units, including 3 entities, in source file pr2.sv
+    Info (12023): Found entity 1: Pr2 File: C:/4720/assignment jump +branch/Pr2.sv Line: 1
+    Info (12023): Found entity 2: ROM File: C:/4720/assignment jump +branch/Pr2.sv Line: 253
+    Info (12023): Found entity 3: RAM File: C:/4720/assignment jump +branch/Pr2.sv Line: 268
+Info (12021): Found 1 design units, including 1 entities, in source file hexencoder.sv
+    Info (12023): Found entity 1: hexEncoder File: C:/4720/assignment jump +branch/HexEncoder.sv Line: 1
+Info (12021): Found 4 design units, including 4 entities, in source file adders.sv
+    Info (12023): Found entity 1: fullAdder File: C:/4720/assignment jump +branch/Adders.sv Line: 1
+    Info (12023): Found entity 2: adder4Bit File: C:/4720/assignment jump +branch/Adders.sv Line: 18
+    Info (12023): Found entity 3: adder8Bit File: C:/4720/assignment jump +branch/Adders.sv Line: 36
+    Info (12023): Found entity 4: adder16Bit File: C:/4720/assignment jump +branch/Adders.sv Line: 56
+Info (12021): Found 2 design units, including 2 entities, in source file multiplier4bit.sv
+    Info (12023): Found entity 1: multiplier_4_bit File: C:/4720/assignment jump +branch/Multiplier4Bit.sv Line: 1
+    Info (12023): Found entity 2: multiplier_inputs_4_bit File: C:/4720/assignment jump +branch/Multiplier4Bit.sv Line: 21
+Info (12021): Found 2 design units, including 2 entities, in source file multiplier8bit.sv
+    Info (12023): Found entity 1: multiplier_8_bit File: C:/4720/assignment jump +branch/Multiplier8Bit.sv Line: 1
+    Info (12023): Found entity 2: multiplier_inputs_8_bit File: C:/4720/assignment jump +branch/Multiplier8Bit.sv Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file logicunit.sv
+    Info (12023): Found entity 1: logic_unit File: C:/4720/assignment jump +branch/LogicUnit.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file multiplexer4-1.sv
+    Info (12023): Found entity 1: mux_4_to_1 File: C:/4720/assignment jump +branch/Multiplexer4-1.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file behaviouraladder.sv
+    Info (12023): Found entity 1: behavioural_adder File: C:/4720/assignment jump +branch/BehaviouralAdder.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file addersubtractor.sv
+    Info (12023): Found entity 1: adder_subtractor File: C:/4720/assignment jump +branch/AdderSubtractor.sv Line: 1
+Info (12021): Found 3 design units, including 3 entities, in source file prioritydecoders.sv
+    Info (12023): Found entity 1: priority_1bit File: C:/4720/assignment jump +branch/PriorityDecoders.sv Line: 1
+    Info (12023): Found entity 2: priority_2bit File: C:/4720/assignment jump +branch/PriorityDecoders.sv Line: 20
+    Info (12023): Found entity 3: priority_4bit File: C:/4720/assignment jump +branch/PriorityDecoders.sv Line: 47
+Info (12021): Found 1 design units, including 1 entities, in source file instructionclassifier.sv
+    Info (12023): Found entity 1: instruction_classifier File: C:/4720/assignment jump +branch/InstructionClassifier.sv Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file shifter.sv
+    Info (12023): Found entity 1: shifter File: C:/4720/assignment jump +branch/Shifter.sv Line: 1
+    Info (12023): Found entity 2: MIPS_shifter File: C:/4720/assignment jump +branch/Shifter.sv Line: 20
+Info (12021): Found 2 design units, including 2 entities, in source file multipliersubtractor.sv
+    Info (12023): Found entity 1: multiply_divide File: C:/4720/assignment jump +branch/MultiplierSubtractor.sv Line: 1
+    Info (12023): Found entity 2: control_signals File: C:/4720/assignment jump +branch/MultiplierSubtractor.sv Line: 47
+Info (12021): Found 3 design units, including 3 entities, in source file alu.sv
+    Info (12023): Found entity 1: ALU File: C:/4720/assignment jump +branch/ALU.sv Line: 1
+    Info (12023): Found entity 2: overflow_detection File: C:/4720/assignment jump +branch/ALU.sv Line: 42
+    Info (12023): Found entity 3: set_less_than File: C:/4720/assignment jump +branch/ALU.sv Line: 63
+Info (12021): Found 3 design units, including 3 entities, in source file tristatebuffers.sv
+    Info (12023): Found entity 1: MUX_with_tri_state File: C:/4720/assignment jump +branch/TriStateBuffers.sv Line: 1
+    Info (12023): Found entity 2: tristate_active_hi File: C:/4720/assignment jump +branch/TriStateBuffers.sv Line: 12
+    Info (12023): Found entity 3: tristate_active_lo File: C:/4720/assignment jump +branch/TriStateBuffers.sv Line: 23
+Warning (10236): Verilog HDL Implicit Net warning at BranchDecision.sv(20): created implicit net for "beq_or_bne" File: C:/4720/assignment jump +branch/BranchDecision.sv Line: 20
+Warning (10236): Verilog HDL Implicit Net warning at BranchDecision.sv(22): created implicit net for "blez_or_bgtz" File: C:/4720/assignment jump +branch/BranchDecision.sv Line: 22
+Warning (10236): Verilog HDL Implicit Net warning at Pr2.sv(47): created implicit net for "CLK_EN" File: C:/4720/assignment jump +branch/Pr2.sv Line: 47
+Warning (10236): Verilog HDL Implicit Net warning at Pr2.sv(100): created implicit net for "EN_init" File: C:/4720/assignment jump +branch/Pr2.sv Line: 100
+Warning (10236): Verilog HDL Implicit Net warning at HexEncoder.sv(2): created implicit net for "a" File: C:/4720/assignment jump +branch/HexEncoder.sv Line: 2
+Warning (10236): Verilog HDL Implicit Net warning at HexEncoder.sv(3): created implicit net for "b" File: C:/4720/assignment jump +branch/HexEncoder.sv Line: 3
+Warning (10236): Verilog HDL Implicit Net warning at HexEncoder.sv(4): created implicit net for "c" File: C:/4720/assignment jump +branch/HexEncoder.sv Line: 4
+Warning (10236): Verilog HDL Implicit Net warning at HexEncoder.sv(5): created implicit net for "d" File: C:/4720/assignment jump +branch/HexEncoder.sv Line: 5
+Warning (10236): Verilog HDL Implicit Net warning at ALU.sv(23): created implicit net for "OVs" File: C:/4720/assignment jump +branch/ALU.sv Line: 23
+Warning (10222): Verilog HDL Parameter Declaration warning at test_my_mem.sv(148): Parameter Declaration in module "parameterized_decoder" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 148
+Info (12127): Elaborating entity "Pr2" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Pr2.sv(54): object "WE" assigned a value but never read File: C:/4720/assignment jump +branch/Pr2.sv Line: 54
+Warning (10036): Verilog HDL or VHDL warning at Pr2.sv(65): object "jumpF" assigned a value but never read File: C:/4720/assignment jump +branch/Pr2.sv Line: 65
+Warning (10230): Verilog HDL assignment warning at Pr2.sv(115): truncated value with size 32 to match size of target (6) File: C:/4720/assignment jump +branch/Pr2.sv Line: 115
+Warning (10230): Verilog HDL assignment warning at Pr2.sv(122): truncated value with size 16 to match size of target (12) File: C:/4720/assignment jump +branch/Pr2.sv Line: 122
+Warning (10230): Verilog HDL assignment warning at Pr2.sv(126): truncated value with size 12 to match size of target (6) File: C:/4720/assignment jump +branch/Pr2.sv Line: 126
+Warning (10230): Verilog HDL assignment warning at Pr2.sv(133): truncated value with size 16 to match size of target (12) File: C:/4720/assignment jump +branch/Pr2.sv Line: 133
+Warning (10230): Verilog HDL assignment warning at Pr2.sv(155): truncated value with size 32 to match size of target (4) File: C:/4720/assignment jump +branch/Pr2.sv Line: 155
+Warning (10230): Verilog HDL assignment warning at Pr2.sv(215): truncated value with size 16 to match size of target (6) File: C:/4720/assignment jump +branch/Pr2.sv Line: 215
+Warning (10034): Output port "LEDR[7..6]" at Pr2.sv(6) has no driver File: C:/4720/assignment jump +branch/Pr2.sv Line: 6
+Info (12128): Elaborating entity "hexEncoder" for hierarchy "hexEncoder:hex0" File: C:/4720/assignment jump +branch/Pr2.sv Line: 33
+Info (12128): Elaborating entity "ROM" for hierarchy "ROM:myrom" File: C:/4720/assignment jump +branch/Pr2.sv Line: 69
+Warning (10850): Verilog HDL warning at Pr2.sv(261): number of words (9) in memory file does not match the number of elements in the address range [0:63] File: C:/4720/assignment jump +branch/Pr2.sv Line: 261
+Warning (10030): Net "mem.data_a" at Pr2.sv(257) has no driver or initial value, using a default initial value '0' File: C:/4720/assignment jump +branch/Pr2.sv Line: 257
+Warning (10030): Net "mem.waddr_a" at Pr2.sv(257) has no driver or initial value, using a default initial value '0' File: C:/4720/assignment jump +branch/Pr2.sv Line: 257
+Warning (10030): Net "mem.we_a" at Pr2.sv(257) has no driver or initial value, using a default initial value '0' File: C:/4720/assignment jump +branch/Pr2.sv Line: 257
+Info (12128): Elaborating entity "MyMemoryOneInputThreeOutput" for hierarchy "MyMemoryOneInputThreeOutput:reg_test" File: C:/4720/assignment jump +branch/Pr2.sv Line: 89
+Info (12128): Elaborating entity "parameterized_decoder" for hierarchy "MyMemoryOneInputThreeOutput:reg_test|parameterized_decoder:decw" File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 105
+Info (12128): Elaborating entity "EnabledReg" for hierarchy "MyMemoryOneInputThreeOutput:reg_test|EnabledReg:bloop[0].itk" File: C:/4720/assignment jump +branch/test_my_mem.sv Line: 124
+Info (12128): Elaborating entity "branch_decision" for hierarchy "branch_decision:branchmodule" File: C:/4720/assignment jump +branch/Pr2.sv Line: 131
+Info (12128): Elaborating entity "priority_2bit" for hierarchy "priority_2bit:R_declassifier" File: C:/4720/assignment jump +branch/Pr2.sv Line: 148
+Info (12128): Elaborating entity "priority_1bit" for hierarchy "priority_2bit:R_declassifier|priority_1bit:decoder_e" File: C:/4720/assignment jump +branch/PriorityDecoders.sv Line: 32
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU_unit" File: C:/4720/assignment jump +branch/Pr2.sv Line: 168
+Info (12128): Elaborating entity "overflow_detection" for hierarchy "ALU:ALU_unit|overflow_detection:overflow" File: C:/4720/assignment jump +branch/ALU.sv Line: 23
+Info (12128): Elaborating entity "set_less_than" for hierarchy "ALU:ALU_unit|set_less_than:SLT" File: C:/4720/assignment jump +branch/ALU.sv Line: 26
+Info (12128): Elaborating entity "logic_unit" for hierarchy "ALU:ALU_unit|logic_unit:logic_u" File: C:/4720/assignment jump +branch/ALU.sv Line: 29
+Info (12128): Elaborating entity "mux_4_to_1" for hierarchy "ALU:ALU_unit|logic_unit:logic_u|mux_4_to_1:logic_mux" File: C:/4720/assignment jump +branch/LogicUnit.sv Line: 16
+Info (12128): Elaborating entity "multiply_divide" for hierarchy "multiply_divide:multi" File: C:/4720/assignment jump +branch/Pr2.sv Line: 172
+Warning (10230): Verilog HDL assignment warning at MultiplierSubtractor.sv(37): truncated value with size 17 to match size of target (16) File: C:/4720/assignment jump +branch/MultiplierSubtractor.sv Line: 37
+Warning (10230): Verilog HDL assignment warning at MultiplierSubtractor.sv(38): truncated value with size 17 to match size of target (16) File: C:/4720/assignment jump +branch/MultiplierSubtractor.sv Line: 38
+Info (12128): Elaborating entity "control_signals" for hierarchy "multiply_divide:multi|control_signals:control0" File: C:/4720/assignment jump +branch/MultiplierSubtractor.sv Line: 17
+Info (12128): Elaborating entity "shifter" for hierarchy "shifter:shft" File: C:/4720/assignment jump +branch/Pr2.sv Line: 176
+Info (12128): Elaborating entity "tristate_active_hi" for hierarchy "tristate_active_hi:triALU" File: C:/4720/assignment jump +branch/Pr2.sv Line: 187
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:myram" File: C:/4720/assignment jump +branch/Pr2.sv Line: 238
+Info (12128): Elaborating entity "instruction_classifier" for hierarchy "instruction_classifier:priority_instruction" File: C:/4720/assignment jump +branch/Pr2.sv Line: 244
+Info (12128): Elaborating entity "priority_4bit" for hierarchy "instruction_classifier:priority_instruction|priority_4bit:decoder_f" File: C:/4720/assignment jump +branch/InstructionClassifier.sv Line: 17
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "RAM:myram|array" is uninferred due to asynchronous read logic File: C:/4720/assignment jump +branch/Pr2.sv Line: 275
+    Info (276004): RAM logic "ROM:myrom|mem" is uninferred due to inappropriate RAM size File: C:/4720/assignment jump +branch/Pr2.sv Line: 257
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/4720/assignment jump +branch/db/Pr2.ram0_ROM_13274a6e.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
+    Warning (13048): Converted tri-state node "R_out[15]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[14]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[13]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[12]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[11]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[10]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[9]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[8]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[7]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[6]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[5]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[4]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[3]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[2]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[1]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+    Warning (13048): Converted tri-state node "R_out[0]" into a selector File: C:/4720/assignment jump +branch/Pr2.sv Line: 52
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX1[0]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX1[1]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX1[2]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/4720/assignment jump +branch/Pr2.sv Line: 5
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 6
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 6
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 6
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 6
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 8
+    Warning (13410): Pin "LEDG[4]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 8
+    Warning (13410): Pin "LEDG[5]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 8
+    Warning (13410): Pin "LEDG[6]" is stuck at GND File: C:/4720/assignment jump +branch/Pr2.sv Line: 8
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 218 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/4720/assignment jump +branch/output_files/Pr2.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 5 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/4720/assignment jump +branch/Pr2.sv Line: 3
+    Warning (15610): No output dependent on input pin "KEY[1]" File: C:/4720/assignment jump +branch/Pr2.sv Line: 3
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/4720/assignment jump +branch/Pr2.sv Line: 3
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/4720/assignment jump +branch/Pr2.sv Line: 3
+    Warning (15610): No output dependent on input pin "KEY[4]" File: C:/4720/assignment jump +branch/Pr2.sv Line: 3
+Info (21057): Implemented 266 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 16 input pins
+    Info (21059): Implemented 46 output pins
+    Info (21061): Implemented 204 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 74 warnings
+    Info: Peak virtual memory: 4848 megabytes
+    Info: Processing ended: Sun Nov 29 14:46:52 2020
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:20
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/4720/assignment jump +branch/output_files/Pr2.map.smsg.
+
+
